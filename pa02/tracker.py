@@ -109,7 +109,7 @@ def process_choice(choice):
     elif choice == '9':
         dates = transaction.summarize_by_year()
         print("Summarize by year")
-        print_summarize_by_month(dates)
+        print_summarize_by_year(dates)
     elif choice == '10':
         # summarize_by_category.clear()
         summarize_category = transaction.summarize_by_category()
@@ -125,18 +125,6 @@ def process_choice(choice):
 
     choice = input("> ")
     return choice
-
-
-def print_summarize_by_month(items):
-    if len(items) == 0:
-        print('no items to print for summarize by date')
-        return
-    print()
-    print("%-10s %-10s" % ('month', 'total amount'))
-    print('-' * 40)
-    for item in items:
-        values = tuple(item.values())
-        print("%-10d %-10d" % values)
 
 
 def print_summarize_by_category(items):
