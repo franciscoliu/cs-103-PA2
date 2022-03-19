@@ -93,6 +93,9 @@ def process_choice(choice):
         des = input("transaction description: ")
         cat = {'item #': item, 'amount': amount, 'category': categ, 'date': date, 'description': des}
         transaction.add(cat)
+    elif choice == '6':
+        delete_id = int(input("the rowid of the deleted transaction: "))
+        transaction.delete(delete_id)
     else:
         print("choice",choice,"not yet implemented")
 
