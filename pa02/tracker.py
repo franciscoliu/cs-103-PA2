@@ -57,6 +57,9 @@ menu = '''
 12. clear the transaction database
 '''
 
+# summarize_by_date = []
+# summarize_by_category = []
+
 
 def process_choice(choice):
     if choice == '0':
@@ -92,13 +95,51 @@ def process_choice(choice):
     elif choice == '6':
         delete_id = int(input("the rowid of the deleted transaction: "))
         transaction.delete(delete_id)
+    elif choice == '7':
+        # summarize_by_date.clear()
+        dates = transaction.summarize_by_date()
+        # summarize_by_date.extend(dates)
+        print("Summarize by dates")
+        print_summarize_by_date(dates)
+    elif choice == '10':
+        # summarize_by_category.clear()
+        summarize_category = transaction.summarize_by_category()
+        # summarize_by_category.extend(summarize_category)
+        print("Summarize by category")
+        print_summarize_by_category(summarize_category)
+    elif choice == '11':
+        print(menu)
     elif choice == '12':
         transaction.clear_database()
     else:
         print("choice", choice, "not yet implemented")
 
     choice = input("> ")
-    return (choice)
+    return choice
+
+
+def print_summarize_by_category(items):
+    if len(items) == 0:
+        print('no items to print for summarize by category')
+        return
+    print()
+    print("%-10s %-10s" % ('category', 'total amount'))
+    print('-' * 40)
+    for item in items:
+        values = tuple(item.values())
+        print("%-10s %-10d" % values)
+
+
+def print_summarize_by_date(items):
+    if len(items) == 0:
+        print('no items to print for summarize by date')
+        return
+    print()
+    print("%-10s %-10s" % ('date', 'total amount'))
+    print('-' * 40)
+    for item in items:
+        values = tuple(item.values())
+        print("%-10d %-10d" % values)
 
 
 def toplevel():
@@ -123,7 +164,7 @@ def print_transactions(items):
         return
     print('\n')
     print("%-10s %-10s %-10s %-10s %-10s %-30s" % (
-       'row_id', 'item_number', 'amount', 'category', 'date', 'description'))
+        'row_id', 'item_number', 'amount', 'category', 'date', 'description'))
     print('-' * 40)
     for item in items:
         values = tuple(item.values())

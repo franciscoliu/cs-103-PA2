@@ -13,6 +13,16 @@ def to_cat_dict_list(cat_tuples):
     return [to_cat_dict(cat) for cat in cat_tuples]
 
 
+def summarize_by_date_helper(cat_tuple):
+    cat = {'date': cat_tuple[0], 'total_amount_transaction': cat_tuple[1]}
+    return cat
+
+
+def summarize_by_category_helper(cat_tuple):
+    cat = {'category': cat_tuple[0], 'total_amount_transaction': cat_tuple[1]}
+    return cat
+
+
 class Transaction():
     def __init__(self, dbfile):
         con = sqlite3.connect(dbfile)
@@ -60,10 +70,30 @@ class Transaction():
         con.commit()
         con.close()
 
+    def summarize_by_date(self):
+        con = sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT date, SUM(amount) FROM transactions GROUP BY date''')
+        tuples = cur.fetchall()
+        con.commit()
+        con.close()
+        return [summarize_by_date_helper(tuple) for tuple in tuples]
+
+    def summarize_by_category(self):
+        con = sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT category, SUM(amount) FROM transactions GROUP BY category''')
+        tuples = cur.fetchall()
+        con.commit()
+        con.close()
+        return [summarize_by_category_helper(tuple) for tuple in tuples]
+
     def clear_database(self):
+        '''
+        clear the entire Transaction database
+        '''
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute('DELETE FROM transactions;', )
         con.commit()
         con.close()
-
