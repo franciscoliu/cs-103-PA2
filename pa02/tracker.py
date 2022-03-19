@@ -85,7 +85,7 @@ def process_choice(choice):
         cats = transaction.select_all()
         print_transactions(cats)
     elif choice == '5':
-        item = str(input("item number: "))
+        item = input("item number: ")
         amount = int(input("item amount: "))
         categ = input("category name: ")
         date = int(input("transaction date: "))
@@ -132,7 +132,7 @@ def print_summarize_by_category(items):
         return
     print()
     print("%-10s %-10s" % ('category', 'total amount'))
-    print('-' * 40)
+    print('-' * 30)
     for item in items:
         values = tuple(item.values())
         print("%-10s %-10d" % values)
@@ -144,7 +144,7 @@ def print_summarize_by_date(items):
         return
     print()
     print("%-10s %-10s" % ('date', 'total amount'))
-    print('-' * 40)
+    print('-' * 30)
     for item in items:
         values = tuple(item.values())
         print("%-10d %-10d" % values)
@@ -155,7 +155,7 @@ def print_summarize_by_month(items):
         return
     print()
     print("%-10s %-10s" % ('month', 'total amount'))
-    print('-' * 40)
+    print('-' * 30)
     for item in items:
         values = tuple(item.values())
         print("%-10d %-10d" % values)
@@ -166,7 +166,7 @@ def print_summarize_by_year(items):
         return
     print()
     print("%-10s %-10s" % ('year', 'total amount'))
-    print('-' * 40)
+    print('-' * 30)
     for item in items:
         values = tuple(item.values())
         print("%-10d %-10d" % values)
@@ -194,7 +194,7 @@ def print_transactions(items):
     print('\n')
     print("%-10s %-10s %-10s %-10s %-10s %-30s" % (
         'row_id', 'item_number', 'amount', 'category', 'date', 'description'))
-    print('-' * 40)
+    print('-' * 70)
     for item in items:
         values = tuple(item.values())
         print("%-10d %-10s %-10d %-10s %-10d %-30s" % values)
@@ -206,11 +206,11 @@ def print_category(cat):
 
 def print_categories(cats):
     print("%-3s %-10s %-30s" % ("id", "name", "description"))
-    print('-' * 45)
+    print('-' * 30)
     for cat in cats:
         print_category(cat)
 
 
 # here is the main call!
-
-toplevel()
+if __name__ == "__main__":
+    toplevel()
