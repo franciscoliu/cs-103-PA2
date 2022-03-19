@@ -28,7 +28,7 @@ def small_db(empty_db):
     cat8 = {'item_number': '8', 'amount': 24430, "category": "car", "date": 19921105, "description": "testing car"}
     cat9 = {'item_number': '9', 'amount': 3424245, "category": "car", "date": 20011110, "description": "testing car"}
     cat10 = {'item_number': '10', 'amount': 13442250, "category": "milk", "date": 20031105, "description": "testing milk"}
-    cat11 = {'item_number': '11', 'amount': 2255530, "category": "phone", "date": 200051105, "description": "testing phone"}
+    cat11 = {'item_number': '11', 'amount': 2255530, "category": "phone", "date": 20001105, "description": "testing phone"}
     cat12 = {'item_number': '12', 'amount': 3522535, "category": "book", "date": 20061110, "description": "testing book"}
     cat13 = {'item_number': '13', 'amount': 10553324, "category": "milk", "date": 20081105, "description": "testing milk"}
     cat14 = {'item_number': '14', 'amount': 262430, "category": "car", "date": 20211105, "description": "testing car"}
