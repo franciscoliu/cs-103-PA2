@@ -85,6 +85,14 @@ def process_choice(choice):
     elif choice == '4':
         cats = transaction.select_all()
         print_transactions(cats)
+    elif choice == '5':
+        item = input("item name: ")
+        amount = int(input("item amount: "))
+        categ = input("category name: ")
+        date = input("transaction date: ")
+        des = input("transaction description: ")
+        cat = {'item #': item, 'amount': amount, 'category': categ, 'date': date, 'description': des}
+        transaction.add(cat)
     else:
         print("choice",choice,"not yet implemented")
 
