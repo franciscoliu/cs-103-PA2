@@ -117,15 +117,6 @@ class Transaction:
         con.close()
         return [summarize_by_category_helper(tuple) for tuple in tuples]
 
-    def summarize_by_month(self):
-        con = sqlite3.connect(self.dbfile)
-        cur = con.cursor()
-        cur.execute('''SELECT date, SUM(amount) FROM transactions GROUP BY date//100%100 ''')
-        tuples = cur.fetchall()
-        con.commit()
-        con.close()
-        return [summarize_by_category_helper(tuple) for tuple in tuples]
-
     def clear_database(self):
         '''
         clear the entire Transaction database

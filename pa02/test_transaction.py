@@ -79,4 +79,6 @@ def test_add(small_db):
     assert cat1["date"] == 20201120
     assert cat1["description"] == "testing milk in add"
 
-
+# @pytest.mark.summarizemonth
+# def test_summarize_by_month(small_db):
+#
