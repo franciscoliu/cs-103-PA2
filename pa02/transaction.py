@@ -42,3 +42,15 @@ class Transaction():
         con.commit()
         con.close()
         return last_rowid[0]
+    
+    def delete(self,rowid):
+        ''' delete a transaction to the transaction table.
+            this returns the rowid of the deleted element
+        '''
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''DELETE FROM transactions
+                       WHERE rowid=(?);
+        ''',(rowid,))
+        con.commit()
+        con.close()
