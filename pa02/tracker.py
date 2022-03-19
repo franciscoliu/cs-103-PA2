@@ -37,7 +37,7 @@ import sys
 
 # transactions = Transaction('tracker.db')
 category = Category('tracker.db')
-transaction = Transaction('tracker.db')
+transaction = Transaction('transaction.db')
 
 # here is the menu for the tracker app
 
@@ -54,6 +54,7 @@ menu = '''
 9. summarize transactions by year
 10. summarize transactions by category
 11. print this menu
+12. clear the transaction database
 '''
 
 
@@ -81,7 +82,7 @@ def process_choice(choice):
         cats = transaction.select_all()
         print_transactions(cats)
     elif choice == '5':
-        item = input("item name: ")
+        item = str(input("item number: "))
         amount = int(input("item amount: "))
         categ = input("category name: ")
         date = int(input("transaction date: "))
@@ -91,6 +92,8 @@ def process_choice(choice):
     elif choice == '6':
         delete_id = int(input("the rowid of the deleted transaction: "))
         transaction.delete(delete_id)
+    elif choice == '12':
+        transaction.clear_database()
     else:
         print("choice", choice, "not yet implemented")
 
@@ -119,12 +122,12 @@ def print_transactions(items):
         print('no items to print')
         return
     print('\n')
-    print("%-10s %-10d %-10s %-10d %-30s" % (
-        'item_number', 'amount', 'category', 'date', 'description'))
+    print("%-10s %-10s %-10s %-10s %-10s %-30s" % (
+       'row_id', 'item_number', 'amount', 'category', 'date', 'description'))
     print('-' * 40)
     for item in items:
         values = tuple(item.values())
-        print("%-10s %-10d %-10s %-10d %-30s" % values)
+        print("%-10d %-10s %-10d %-10s %-10d %-30s" % values)
 
 
 def print_category(cat):

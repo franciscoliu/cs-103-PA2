@@ -18,7 +18,7 @@ class Transaction():
         con = sqlite3.connect(dbfile)
         cur = con.cursor()
         cur.execute('''CREATE TABLE IF NOT EXISTS transactions 
-                    (item_number int, amount int, category text, date int, description text)''')
+                    (item_number text, amount int, category text, date int, description text)''')
         con.commit()
         con.close()
         self.dbfile = dbfile
@@ -59,3 +59,11 @@ class Transaction():
         ''', (rowid,))
         con.commit()
         con.close()
+
+    def clear_database(self):
+        con = sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('DELETE FROM transactions;', )
+        con.commit()
+        con.close()
+
