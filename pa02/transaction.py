@@ -24,7 +24,7 @@ def summarize_by_category_helper(cat_tuple):
     return cat
 
 
-class Transaction():
+class Transaction:
     def __init__(self, dbfile):
         con = sqlite3.connect(dbfile)
         cur = con.cursor()
@@ -85,6 +85,24 @@ class Transaction():
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute('''SELECT date, SUM(amount) FROM transactions GROUP BY date''')
+        tuples = cur.fetchall()
+        con.commit()
+        con.close()
+        return [summarize_by_date_helper(tuple) for tuple in tuples]
+
+    def summarize_by_month(self):
+        con = sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT date/100%100, SUM(amount) FROM transactions GROUP BY date/100%100''')
+        tuples = cur.fetchall()
+        con.commit()
+        con.close()
+        return [summarize_by_date_helper(tuple) for tuple in tuples]
+
+    def summarize_by_year(self):
+        con = sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT date/10000, SUM(amount) FROM transactions GROUP BY date/10000''')
         tuples = cur.fetchall()
         con.commit()
         con.close()
