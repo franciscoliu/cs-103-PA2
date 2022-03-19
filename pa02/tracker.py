@@ -99,11 +99,15 @@ def process_choice(choice):
         # summarize_by_date.clear()
         dates = transaction.summarize_by_date()
         # summarize_by_date.extend(dates)
-        print("Summarize by dates")
+        print("Summarize by date")
         print_summarize_by_date(dates)
     elif choice == '8':
         dates = transaction.summarize_by_month()
-        print("Summarize by months")
+        print("Summarize by month")
+        print_summarize_by_month(dates)
+    elif choice == '9':
+        dates = transaction.summarize_by_year()
+        print("Summarize by year")
         print_summarize_by_month(dates)
     elif choice == '10':
         # summarize_by_category.clear()
@@ -156,6 +160,16 @@ def print_summarize_by_month(items):
         values = tuple(item.values())
         print("%-10d %-10d" % values)
 
+def print_summarize_by_year(items):
+    if len(items) == 0:
+        print('no items to print for summarize by year')
+        return
+    print()
+    print("%-10s %-10s" % ('year', 'total amount'))
+    print('-' * 40)
+    for item in items:
+        values = tuple(item.values())
+        print("%-10d %-10d" % values)
 
 def toplevel():
     ''' handle the user's choice '''

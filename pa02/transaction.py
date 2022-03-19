@@ -88,6 +88,15 @@ class Transaction:
         con.close()
         return [summarize_by_date_helper(tuple) for tuple in tuples]
 
+    def summarize_by_year(self):
+        con = sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute('''SELECT date/10000, SUM(amount) FROM transactions GROUP BY date/10000''')
+        tuples = cur.fetchall()
+        con.commit()
+        con.close()
+        return [summarize_by_date_helper(tuple) for tuple in tuples]
+
     def summarize_by_category(self):
         con = sqlite3.connect(self.dbfile)
         cur = con.cursor()
