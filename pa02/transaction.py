@@ -20,7 +20,7 @@ class Transaction():
         self.dbfile = dbfile
         
     def select_all(self):
-        ''' return all of the categories as a list of dicts.'''
+        ''' return all of the transactions as a list of dicts.'''
         con= sqlite3.connect(self.dbfile)
         cur = con.cursor()
         cur.execute("SELECT rowid,* from transactions")
@@ -28,3 +28,17 @@ class Transaction():
         con.commit()
         con.close()
         return to_cat_dict_list(tuples)
+    
+    def add(self,item):
+        ''' add a transaction to the transaction table.
+            this returns the rowid of the inserted element
+        '''
+        con= sqlite3.connect(self.dbfile)
+        cur = con.cursor()
+        cur.execute("INSERT INTO transactions VALUES(?,?,?,?,?)",(item['item #'],item['amount'], item['category'], item['date'], item['description']))
+        con.commit()
+        cur.execute("SELECT last_insert_rowid()")
+        last_rowid = cur.fetchone()
+        con.commit()
+        con.close()
+        return last_rowid[0]
