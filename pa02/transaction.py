@@ -13,7 +13,7 @@ def to_cat_dict_list(cat_tuples):
     return [to_cat_dict(cat) for cat in cat_tuples]
 
 
-class Transaction():
+class Transaction():  
     def __init__(self, dbfile):
         con = sqlite3.connect(dbfile)
         cur = con.cursor()
