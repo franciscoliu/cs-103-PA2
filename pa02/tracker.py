@@ -1,4 +1,3 @@
-#! /opt/miniconda3/bin/python3
 '''
 tracker is an app that maintains a list of personal
 financial transactions.
@@ -89,9 +88,9 @@ def process_choice(choice):
         item = input("item name: ")
         amount = int(input("item amount: "))
         categ = input("category name: ")
-        date = input("transaction date: ")
+        date = int(input("transaction date: "))
         des = input("transaction description: ")
-        cat = {'item #': item, 'amount': amount, 'category': categ, 'date': date, 'description': des}
+        cat = {'item_number': item, 'amount': amount, 'category': categ, 'date': date, 'description': des}
         transaction.add(cat)
     elif choice == '6':
         delete_id = int(input("the rowid of the deleted transaction: "))
@@ -124,7 +123,7 @@ def print_transactions(items):
         return
     print('\n')
     print("%-10s %-10d %-10s %-10d %-30s"%(
-        'item #','amount','category','date','description'))
+        'item_number','amount','category','date','description'))
     print('-'*40)
     for item in items:
         values = tuple(item.values()) 
