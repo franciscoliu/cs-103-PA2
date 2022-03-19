@@ -57,6 +57,7 @@ menu = '''
 12. clear the transaction database
 '''
 
+
 # summarize_by_date = []
 # summarize_by_category = []
 
@@ -116,6 +117,18 @@ def process_choice(choice):
 
     choice = input("> ")
     return choice
+
+
+def print_summarize_by_month(items):
+    if len(items) == 0:
+        print('no items to print for summarize by date')
+        return
+    print()
+    print("%-10s %-10s" % ('month', 'total amount'))
+    print('-' * 40)
+    for item in items:
+        values = tuple(item.values())
+        print("%-10d %-10d" % values)
 
 
 def print_summarize_by_category(items):
