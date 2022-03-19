@@ -33,10 +33,12 @@ could be replaced with PostgreSQL or Pandas or straight python lists
 
 #from transactions import Transaction
 from category import Category
+from transaction import Transaction
 import sys
 
 #transactions = Transaction('tracker.db')
 category = Category('tracker.db')
+transaction = Transaction('tracker.db')
 
 
 # here is the menu for the tracker app
@@ -77,7 +79,12 @@ def process_choice(choice):
         name = input("new category name: ")
         desc = input("new category description: ")
         cat = {'name':name, 'desc':desc}
-        category.update(rowid,cat)
+        category.update(rowid,cat)    
+    
+    #Added code
+    elif choice == '4':
+        cats = transaction.select_all()
+        print_transactions(cats)
     else:
         print("choice",choice,"not yet implemented")
 
