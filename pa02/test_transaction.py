@@ -79,6 +79,20 @@ def test_add(small_db):
     assert cat1["date"] == 20201120
     assert cat1["description"] == "testing milk in add"
 
-# @pytest.mark.summarizemonth
-# def test_summarize_by_month(small_db):
-#
+
+@pytest.mark.summarize_by_category
+def test_summarize_by_category(small_db):
+    # @author Michael LI
+    # this method test the summarize_by_category method in transaction
+    small_db.clear_database()
+    cat1 = {'item_number': '1', 'amount': 100, "category": "food", "date": 20010612, "description": "testing food"}
+    cat2 = {'item_number': '2', 'amount': 100, "category": "food", "date": 20010612, "description": "testing food"}
+    cat3 = {'item_number': '3', 'amount': 100, "category": "cars", "date": 20010612, "description": "testing cars"}
+    small_db.add(cat1)
+    small_db.add(cat2)
+    small_db.add(cat3)
+    category_summarize = small_db.summarize_by_category()
+    assert category_summarize[0]['category'] == "cars"
+    assert category_summarize[0]['total_amount_transaction'] == 100
+    assert category_summarize[1]['category'] == "food"
+    assert category_summarize[1]['total_amount_transaction'] == 200
