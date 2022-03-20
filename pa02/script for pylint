@@ -1,0 +1,25 @@
+Script started on Sat Mar 19 21:34:07 2022
+[1m[7m%[27m[1m[0m                                                                                                                                                 [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hppylint 
+[J__pycache__/                pytest.ini                  script\ for\ test           test_transaction.py         transaction.py
+category.py                 script\ for\ demonstration  test_category.py            tracker.py                  typescript[A[A[0m[27m[24m[45Cpylint[K[1C__pycache__[1m/[0m[12Dcategory.py[0m [11Dpy[2Cst.ini [10Dscript\ for\ demonstration[13Dtest         [9D[17Dtest_category.py [11Dtransaction.py[?2004l
+[J
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
+[1m[7m%[27m[1m[0m                                                                                                                                                 [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hppylint 
+[J__pycache__/                pytest.ini                  script\ for\ test           test_transaction.py         transaction.py
+category.py                 script\ for\ demonstration  test_category.py            tracker.py                  typescript[A[A[0m[27m[24m[45Cpylint[K[1C__pycache__[1m/[0m[12Dcategory.py[0m [11Dpy[2Cst.ini [10Dscript\ for\ demonstration[13Dtest         [9D[17Dtest_category.py [11Dtransaction.py[18Dracker.py         [9D[?2004l
+[J
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 7.72/10, +2.28)
+
+[1m[7m%[27m[1m[0m                                                                                                                                                 [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004ht ppylint 
+[J__pycache__/                pytest.ini                  script\ for\ test           test_transaction.py         transaction.py
+category.py                 script\ for\ demonstration  test_category.py            tracker.py                  typescript[A[A[0m[27m[24m[45Cpylint[K[1C__pycache__[1m/[0m[12Dcategory.py[0m [11Dpy[2Cst.ini [10Dscript\ for\ demonstration[13Dtest         [9D[17Dtest_category.py [11Dtransaction.py[18Dracker.py         [9Dnsaction.py[?2004l
+[J
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 8.48/10, +1.52)
+
+[1m[7m%[27m[1m[0m                                                                                                                                                 [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hq eexit[?2004l
+
+Script done on Sat Mar 19 21:35:26 2022
