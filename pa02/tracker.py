@@ -40,7 +40,7 @@ transaction = Transaction('transaction.db')
 
 # here is the menu for the tracker app
 
-ME_NU= '''
+ME_NU = '''
 0. quit
 1. show categories
 2. add category
@@ -55,6 +55,7 @@ ME_NU= '''
 11. print this menu
 12. clear the transaction database
 '''
+
 
 # pylint:disable=too-many-branches
 # pylint:disable=too-many-statements
@@ -128,10 +129,10 @@ def process_choice(choice):
     choice = input("> ")
     return choice
 
-def print_summarize_by_category(items):
 
+# pylint:disable=bad-option-value
+def print_summarize_by_category(items):
     '''summarize the datatable by category'''
-    # pylint:disable=consider-using-f-string
 
     if len(items) == 0:
         print('no items to print for summarize by category')
@@ -144,11 +145,9 @@ def print_summarize_by_category(items):
         print("%-10s %-10d" % values)
 
 
-
+# pylint:disable=bad-option-value
 def print_summarize_by_date(items):
-
     '''summarize the datatable by date'''
-    # pylint:disable=consider-using-f-string
 
     if len(items) == 0:
         print('no items to print for summarize by date')
@@ -161,10 +160,9 @@ def print_summarize_by_date(items):
         print("%-10d %-10d" % values)
 
 
+# pylint:disable=bad-option-value
 def print_summarize_by_month(items):
-
     '''summarize the datatable by month'''
-    # pylint:disable=consider-using-f-string
 
     if len(items) == 0:
         print('no items to print for summarize by month')
@@ -177,10 +175,9 @@ def print_summarize_by_month(items):
         print("%-10d %-10d" % values)
 
 
+# pylint:disable=bad-option-value
 def print_summarize_by_year(items):
-
     '''summarize the datatable by year'''
-    # pylint:disable=consider-using-f-string
 
     if len(items) == 0:
         print('no items to print for summarize by year')
@@ -206,11 +203,9 @@ def toplevel():
 #
 # here are some helper functions
 #
-
+# pylint:disable=bad-option-value
 def print_transactions(items):
-
     ''' print the transactions '''
-    # pylint:disable=consider-using-f-string
 
     if len(items) == 0:
         print('no items to print')
@@ -224,18 +219,16 @@ def print_transactions(items):
         print("%-10d %-10s %-10d %-10s %-10d %-30s" % values)
 
 
+# pylint:disable=bad-option-value
 def print_category(cat):
-
     '''print detailed category'''
-    # pylint:disable=consider-using-f-string
 
     print("%-3d %-10s %-30s" % (cat['rowid'], cat['name'], cat['desc']))
 
 
+# pylint:disable=bad-option-value
 def print_categories(cats):
-
     '''print categories'''
-    # pylint:disable=consider-using-f-string
 
     print("%-3s %-10s %-30s" % ("id", "name", "description"))
     print('-' * 30)

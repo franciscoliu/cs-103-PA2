@@ -90,7 +90,10 @@ def small_db(empty_db):
 
 @pytest.mark.add
 def test_add(small_db):
-    '''this method tests add'''
+    '''
+    this method tests add
+    # @author Gordon Dou
+    '''
     cat0 = {'item_number': '4', 'amount': 20, "category": "milk",
     "date": 20201120, "description": "testing milk in add"}
     cats0 = small_db.select_all()
