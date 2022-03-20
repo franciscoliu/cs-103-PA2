@@ -80,6 +80,44 @@ def test_add(small_db):
     assert cat1["description"] == "testing milk in add"
 
 
+@pytest.mark.summarizemonth
+def test_summarize_by_month(small_db):
+    # @author Alicia Sheng
+    # tests summarize_by_month method
+    small_db.clear_database()
+    cat1 = {'item_number': '1', 'amount': 10, "category": "milk", "date": 20201105, "description": "testing milk"}
+    cat2 = {'item_number': '2', 'amount': 20, "category": "car", "date": 20201105, "description": "testing car"}
+    cat3 = {'item_number': '3', 'amount': 35, "category": "car", "date": 20201110, "description": "testing car two"}
+    cat4 = {'item_number': '4', 'amount': 1, "category": "milk", "date": 20201010, "description": "testing milk two"}
+    small_db.add(cat1)
+    small_db.add(cat2)
+    small_db.add(cat3)
+    small_db.add(cat4)
+    month_summarize = small_db.summarize_by_month()
+    assert month_summarize[0]['date'] == 10
+    assert month_summarize[0]['total_amount_transaction'] == 1
+
+@pytest.mark.summarizeyear
+def test_summarize_by_year(small_db):
+    # @author Alicia Sheng
+    # tests summarize_by_year method
+    small_db.clear_database()
+    cat1 = {'item_number': '1', 'amount': 10, "category": "milk", "date": 20091105, "description": "testing milk"}
+    cat2 = {'item_number': '2', 'amount': 20, "category": "car", "date": 20191105, "description": "testing car"}
+    cat3 = {'item_number': '3', 'amount': 35, "category": "car", "date": 20121110, "description": "testing car two"}
+    cat4 = {'item_number': '4', 'amount': 1, "category": "milk", "date": 20091010, "description": "testing milk two"}
+    small_db.add(cat1)
+    small_db.add(cat2)
+    small_db.add(cat3)
+    small_db.add(cat4)
+    month_summarize = small_db.summarize_by_year()
+    assert month_summarize[0]['date'] == 2009
+    assert month_summarize[0]['total_amount_transaction'] == 11
+    assert month_summarize[1]['date'] == 2012
+    assert month_summarize[1]['total_amount_transaction'] == 35
+    assert month_summarize[2]['date'] == 2019
+    assert month_summarize[2]['total_amount_transaction'] == 20
+
 @pytest.mark.summarize_by_category
 def test_summarize_by_category(small_db):
     # @author Michael LI
