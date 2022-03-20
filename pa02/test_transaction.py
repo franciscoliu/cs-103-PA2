@@ -134,3 +134,45 @@ def test_summarize_by_category(small_db):
     assert category_summarize[0]['total_amount_transaction'] == 100
     assert category_summarize[1]['category'] == "food"
     assert category_summarize[1]['total_amount_transaction'] == 200
+
+@pytest.mark.delete
+def test_delete(small_db):
+    small_db.clear_database()
+    cat0 = {'item_number': '4', 'amount': 20, "category": "milk", "date": 20201120, "description": "testing milk in add"}
+    cat1 = {'item_number': '5', 'amount': 30, "category": "juice", "date": 20201121, "description": "testing juice"}
+    rowid0 = small_db.add(cat0)
+    cats0 = small_db.select_all()
+    assert len(cats0) == 1
+    
+    rowid1 = small_db.add(cat1)
+    cats1 = small_db.select_all()
+    assert len(cats1) == 2
+    
+    small_db.delete(rowid1)
+    cats2 = small_db.select_all()
+    assert len(cats2) == 1
+    
+    cats3 = small_db.select_one(rowid0)
+    assert cats3["amount"] == 20
+    assert cats3["category"] == "milk"
+    assert cats3["date"] == 20201120
+    assert cats3["description"] == "testing milk in add"
+    
+    
+@pytest.mark.summarizedate
+def test_summarize_by_year(small_db):
+    small_db.clear_database()
+    cat1 = {'item_number': '1', 'amount': 10, "category": "milk", "date": 20091105, "description": "testing milk"}
+    cat2 = {'item_number': '2', 'amount': 20, "category": "car", "date": 20191105, "description": "testing car"}
+    cat3 = {'item_number': '3', 'amount': 35, "category": "car", "date": 20191105, "description": "testing car two"}
+    cat4 = {'item_number': '4', 'amount': 1, "category": "milk", "date": 20091105, "description": "testing milk two"}
+    small_db.add(cat1)
+    small_db.add(cat2)
+    small_db.add(cat3)
+    small_db.add(cat4)
+    month_summarize = small_db.summarize_by_date()
+    assert month_summarize[0]['date'] == 20091105
+    assert month_summarize[0]['total_amount_transaction'] == 11
+    assert month_summarize[1]['date'] == 20191105
+    assert month_summarize[1]['total_amount_transaction'] == 55
+    
