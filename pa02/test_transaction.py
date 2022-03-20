@@ -105,7 +105,8 @@ def test_add(small_db):
 
 @pytest.mark.summarizedate
 def test_summarize_by_date(small_db):
-    '''this method tests summarize_by_year'''
+    '''this method tests summarize_by_year
+    frank wrote this test'''
     small_db.clear_database()
     cat1 = {'item_number': '1', 'amount': 10, "category": "milk",
      "date": 20091105, "description": "testing milk"}
@@ -196,7 +197,8 @@ def test_summarize_by_category(small_db):
 
 @pytest.mark.delete
 def test_delete(small_db):
-    '''this method tests delete'''
+    '''this method tests delete
+    frank wrote this test method'''
     small_db.clear_database()
     cat0 = {'item_number': '4', 'amount': 20, "category": "milk",
     "date": 20201120, "description": "testing milk in add"}

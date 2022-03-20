@@ -61,7 +61,8 @@ ME_NU= '''
 # pylint:disable=inconsistent-return-statements
 # pylint:disable=no-else-return
 def process_choice(choice):
-    '''user can choose each number to process choice'''
+    '''user can choose each number to process choice
+    frank wrote choice 4, 5, 6'''
 
     if choice == '0':
         return

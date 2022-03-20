@@ -31,7 +31,9 @@ def summarize_by_category_helper(cat_tuple):
 
 
 class Transaction:
-    ''' connects with sqlite and record the information of transactions '''
+    ''' connects with sqlite and record the information of transactions
+    frank initialize the whole class and added some basic method (add,
+    select, delete methods'''
     def __init__(self, dbfile):
         con = sqlite3.connect(dbfile)
         cur = con.cursor()
