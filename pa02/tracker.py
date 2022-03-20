@@ -25,7 +25,7 @@ In place of SQL queries, we will have method calls.
 
 This app will store the data in a SQLite database ~/tracker.db
 
-Note the actual implementation of the ORM is hidden and so it 
+Note the actual implementation of the ORM is hidden and so it
 could be replaced with PostgreSQL or Pandas or straight python lists
 
 '''
@@ -33,7 +33,6 @@ could be replaced with PostgreSQL or Pandas or straight python lists
 # from transactions import Transaction
 from category import Category
 from transaction import Transaction
-import sys
 
 # transactions = Transaction('tracker.db')
 category = Category('tracker.db')
@@ -41,7 +40,7 @@ transaction = Transaction('transaction.db')
 
 # here is the menu for the tracker app
 
-menu = '''
+ME_NU= '''
 0. quit
 1. show categories
 2. add category
@@ -57,12 +56,13 @@ menu = '''
 12. clear the transaction database
 '''
 
-
-# summarize_by_date = []
-# summarize_by_category = []
-
-
+# pylint:disable=too-many-branches
+# pylint:disable=too-many-statements
+# pylint:disable=inconsistent-return-statements
+# pylint:disable=no-else-return
 def process_choice(choice):
+    '''user can choose each number to process choice'''
+
     if choice == '0':
         return
     elif choice == '1':
@@ -91,7 +91,8 @@ def process_choice(choice):
         categ = input("category name: ")
         date = int(input("transaction date: "))
         des = input("transaction description: ")
-        cat = {'item_number': item, 'amount': amount, 'category': categ, 'date': date, 'description': des}
+        cat = {'item_number': item, 'amount': amount,
+               'category': categ, 'date': date, 'description': des}
         transaction.add(cat)
     elif choice == '6':
         delete_id = int(input("the rowid of the deleted transaction: "))
@@ -117,7 +118,7 @@ def process_choice(choice):
         print("Summarize by category")
         print_summarize_by_category(summarize_category)
     elif choice == '11':
-        print(menu)
+        print(ME_NU)
     elif choice == '12':
         transaction.clear_database()
     else:
@@ -126,8 +127,11 @@ def process_choice(choice):
     choice = input("> ")
     return choice
 
-
 def print_summarize_by_category(items):
+
+    '''summarize the datatable by category'''
+    # pylint:disable=consider-using-f-string
+
     if len(items) == 0:
         print('no items to print for summarize by category')
         return
@@ -139,7 +143,12 @@ def print_summarize_by_category(items):
         print("%-10s %-10d" % values)
 
 
+
 def print_summarize_by_date(items):
+
+    '''summarize the datatable by date'''
+    # pylint:disable=consider-using-f-string
+
     if len(items) == 0:
         print('no items to print for summarize by date')
         return
@@ -150,7 +159,12 @@ def print_summarize_by_date(items):
         values = tuple(item.values())
         print("%-10d %-10d" % values)
 
+
 def print_summarize_by_month(items):
+
+    '''summarize the datatable by month'''
+    # pylint:disable=consider-using-f-string
+
     if len(items) == 0:
         print('no items to print for summarize by month')
         return
@@ -161,7 +175,12 @@ def print_summarize_by_month(items):
         values = tuple(item.values())
         print("%-10d %-10d" % values)
 
+
 def print_summarize_by_year(items):
+
+    '''summarize the datatable by year'''
+    # pylint:disable=consider-using-f-string
+
     if len(items) == 0:
         print('no items to print for summarize by year')
         return
@@ -172,11 +191,11 @@ def print_summarize_by_year(items):
         values = tuple(item.values())
         print("%-10d %-10d" % values)
 
-def toplevel():
-    ''' handle the user's choice '''
 
-    ''' read the command args and process them'''
-    print(menu)
+def toplevel():
+    ''' handle the user's choice, read the command args and process them '''
+
+    print(ME_NU)
     choice = input("> ")
     while choice != '0':
         choice = process_choice(choice)
@@ -188,7 +207,10 @@ def toplevel():
 #
 
 def print_transactions(items):
+
     ''' print the transactions '''
+    # pylint:disable=consider-using-f-string
+
     if len(items) == 0:
         print('no items to print')
         return
@@ -202,10 +224,18 @@ def print_transactions(items):
 
 
 def print_category(cat):
+
+    '''print detailed category'''
+    # pylint:disable=consider-using-f-string
+
     print("%-3d %-10s %-30s" % (cat['rowid'], cat['name'], cat['desc']))
 
 
 def print_categories(cats):
+
+    '''print categories'''
+    # pylint:disable=consider-using-f-string
+
     print("%-3s %-10s %-30s" % ("id", "name", "description"))
     print('-' * 30)
     for cat in cats:
