@@ -1,19 +1,0 @@
-Script started on Sat Mar 19 21:01:28 2022
-[1m[7m%[27m[1m[0m                                                                                                                                                                  [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 cs-103-PA2 % [K[?2004hppytest 
-[JREADME.md       pa02/           tracker.db      transaction.db  typescript[A[0m[27m[24m[51Cpytest[K[1CREADME.md[9Dpa02[1m/[0m    trac[0mker.dbnsaction.db[13Dypescript    [10DREADME.md [9Dpa02[1m/[0m    [0m         p  ccd 
-[J[JREADME.md       pa02/           tracker.db      transaction.db  typescript[A[0m[27m[24m[51Ccd[K[1CREADME.md[9Dpa02[1m/[0m    [0m [?2004l
-[J[1m[7m%[27m[1m[0m                                                                                                                                                                  [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hppytest 
-[J__pycache__/         pytest.ini           test_transaction.py  tracker.py           transaction.py       
-category.py          test_category.py     tracker.db           transaction.db       [A[A[0m[27m[24m[45Cpytest[K[1C__pycache__[1m/[0m[12Dcategory.py[0m [11Dpy[2Cst.ini [10Dtest_category.py[11Dtransaction.py[?2004l
-[J[1m====================================================================== test session starts =======================================================================[0m
-platform darwin -- Python 3.9.7, pytest-7.1.1, pluggy-0.13.1
-rootdir: /Users/michael/Documents/Github Desktop/cs-103-PA2/pa02, configfile: pytest.ini
-plugins: anyio-2.2.0
-[1mcollecting ... [0m[1mcollected 5 items                                                                                                                                                [0m
-
-test_transaction.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m                                                                                                                                  [100%][0m
-
-[32m======================================================================= [32m[1m5 passed[0m[32m in 0.16s[0m[32m ========================================================================[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                                  [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hqquit  q  eexit[?2004l
-
-Script done on Sat Mar 19 21:02:13 2022

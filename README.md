@@ -1,57 +1,37 @@
 # cs-103-PA2
 
-#script for pylint
+#pylint
 
-Script started on Sat Mar 19 21:34:07 2022
-[1m[7m%[27m[1m[0m                                                                                                                                                 [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hppylint 
-[J__pycache__/                pytest.ini                  script\ for\ test           test_transaction.py         transaction.py
-category.py                 script\ for\ demonstration  test_category.py            tracker.py                  typescript[A[A[0m[27m[24m[45Cpylint[K[1C__pycache__[1m/[0m[12Dcategory.py[0m [11Dpy[2Cst.ini [10Dscript\ for\ demonstration[13Dtest         [9D[17Dtest_category.py [11Dtransaction.py[?2004l
-[J
+(base) michael@Michaels-MBP-2 pa02 % pylint tracker.py                
+
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 9.04/10, +0.96)
+
+(base) michael@Michaels-MBP-2 pa02 % pylint test_transaction.py       
+
 --------------------------------------------------------------------
 Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
-[1m[7m%[27m[1m[0m                                                                                                                                                 [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hppylint 
-[J__pycache__/                pytest.ini                  script\ for\ test           test_transaction.py         transaction.py
-category.py                 script\ for\ demonstration  test_category.py            tracker.py                  typescript[A[A[0m[27m[24m[45Cpylint[K[1C__pycache__[1m/[0m[12Dcategory.py[0m [11Dpy[2Cst.ini [10Dscript\ for\ demonstration[13Dtest         [9D[17Dtest_category.py [11Dtransaction.py[18Dracker.py         [9D[?2004l
-[J
--------------------------------------------------------------------
-Your code has been rated at 10.00/10 (previous run: 7.72/10, +2.28)
+(base) michael@Michaels-MBP-2 pa02 % pylint transaction.py            
 
-[1m[7m%[27m[1m[0m                                                                                                                                                 [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004ht ppylint 
-[J__pycache__/                pytest.ini                  script\ for\ test           test_transaction.py         transaction.py
-category.py                 script\ for\ demonstration  test_category.py            tracker.py                  typescript[A[A[0m[27m[24m[45Cpylint[K[1C__pycache__[1m/[0m[12Dcategory.py[0m [11Dpy[2Cst.ini [10Dscript\ for\ demonstration[13Dtest         [9D[17Dtest_category.py [11Dtransaction.py[18Dracker.py         [9Dnsaction.py[?2004l
-[J
--------------------------------------------------------------------
-Your code has been rated at 10.00/10 (previous run: 8.48/10, +1.52)
-
-[1m[7m%[27m[1m[0m                                                                                                                                                 [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hq eexit[?2004l
-
-Script done on Sat Mar 19 21:35:26 2022
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
 
 
 
-#script for pytest
+#pytest
 
-Script started on Sat Mar 19 21:01:28 2022
-[1m[7m%[27m[1m[0m                                                                                                                                                                  [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 cs-103-PA2 % [K[?2004hppytest 
-[JREADME.md       pa02/           tracker.db      transaction.db  typescript[A[0m[27m[24m[51Cpytest[K[1CREADME.md[9Dpa02[1m/[0m    trac[0mker.dbnsaction.db[13Dypescript    [10DREADME.md [9Dpa02[1m/[0m    [0m         p  ccd 
-[J[JREADME.md       pa02/           tracker.db      transaction.db  typescript[A[0m[27m[24m[51Ccd[K[1CREADME.md[9Dpa02[1m/[0m    [0m [?2004l
-[J[1m[7m%[27m[1m[0m                                                                                                                                                                  [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hppytest 
-[J__pycache__/         pytest.ini           test_transaction.py  tracker.py           transaction.py       
-category.py          test_category.py     tracker.db           transaction.db       [A[A[0m[27m[24m[45Cpytest[K[1C__pycache__[1m/[0m[12Dcategory.py[0m [11Dpy[2Cst.ini [10Dtest_category.py[11Dtransaction.py[?2004l
-[J[1m====================================================================== test session starts =======================================================================[0m
+(base) michael@Michaels-MBP-2 pa02 % pytest test_transaction.py       
+====================================================================== test session starts =======================================================================
 platform darwin -- Python 3.9.7, pytest-7.1.1, pluggy-0.13.1
-rootdir: /Users/michael/Documents/Github Desktop/cs-103-PA2/pa02, configfile: pytest.ini
+rootdir: /Users/michael/Documents/Github_Desktop/cs-103-PA2/pa02, configfile: pytest.ini
 plugins: anyio-2.2.0
-[1mcollecting ... [0m[1mcollected 5 items                                                                                                                                                [0m
+collected 6 items                                                                                                                                                
 
-test_transaction.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m                                                                                                                                  [100%][0m
+test_transaction.py ......                                                                                                                                 [100%]
 
-[32m======================================================================= [32m[1m5 passed[0m[32m in 0.16s[0m[32m ========================================================================[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                                  [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hqquit  q  eexit[?2004l
-
-Script done on Sat Mar 19 21:02:13 2022
+======================================================================= 6 passed in 0.19s ========================================================================
 
 
 
@@ -60,9 +40,15 @@ Script done on Sat Mar 19 21:02:13 2022
 #script for demonstrating all of the features
 
 Script started on Sat Mar 19 21:08:38 2022
-[1m[7m%[27m[1m[0m                                                                                                                                                                  [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hppython3 
+[1m[7m%[27m[1m[0m                                                                                                                                                                 
+ 
+
+[0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004hppython3 
+
 [J__pycache__/         pytest.ini           test_transaction.py  transaction.py       
-category.py          test_category.py     tracker.py           typescript           [A[A[0m[27m[24m[45Cpython3[K[1C__pycache__[1m/[0m[12Dcategory.py[0m [11Dpy[2Cst.ini [10Dtest_category.py[11Dtransaction.py[18Dracker.py         [9D[?2004l
+category.py          test_category.py     tracker.py           typescript           [A[A[0m[27m[24m
+[45Cpython3[K[1C__pycache__[1m/[0m[12Dcategory.py[0m [11Dpy[2Cst.ini [10Dtest_category.py[11Dtransaction.py[18Dracker.py         [9D[?2004l
+
 [J
 0. quit
 1. show categories
@@ -177,6 +163,10 @@ id  name       description
 no items to print
 > 0
 bye
-[1m[7m%[27m[1m[0m                                                                                                                                                                  [0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004heexit[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                                 
+ 
+
+[0m[27m[24m[J(base) michael@Michaels-MacBook-Pro-2 pa02 % [K[?2004heexit[?2004l
+
 
 Script done on Sat Mar 19 21:11:28 2022
